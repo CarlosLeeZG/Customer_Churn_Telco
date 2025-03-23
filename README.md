@@ -1,5 +1,4 @@
-# jan25-p04
-## AI300 Capstone Project: Deployment of Customer Churn Prediction Model 
+#Deployment of Customer Churn Prediction Model 
 Objectives:
 - Build a machine learning (ML) binary classifier that predicts the archetypes of clients that are likely to churn
 - Deploy the ML binary classifer as a Flask web application hosted on AWS
