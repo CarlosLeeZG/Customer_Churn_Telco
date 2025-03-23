@@ -10,7 +10,7 @@ Carlos Lee Zhen Guang
 
 App on AWS: http://ec2-47-129-40-17.ap-southeast-1.compute.amazonaws.com
 
-Repo on Docker: [https://hub.docker.com/r/carlosleezg/ai300capstone](https://hub.docker.com/repository/docker/carlosleezg/telco_cust_churn/general)
+Repo on Docker: https://hub.docker.com/repository/docker/carlosleezg/telco_cust_churn/general
 
 
 ## Details on chosen CatBoost Classifier and its underlying hyperparameters
