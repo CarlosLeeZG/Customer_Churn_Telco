@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link type="text/css" rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
+    <title>Customer Churn Prediction</title>
+</head>
+<body>
+  <div class="form-wrapper">
+    <h1>Customer Churn Prediction:</h1>
+    <form method="POST">
+
+        <div class="form-field">
+        <label for="num_dependents_bin">Number of Dependent(s)?:</label>
+        <select name="num_dependents_bin" id="num_dependents_bin">
+          <option value="Nil" selected>0</option>
+          <option value="1">1</option>
+          <option value="2 or more" >2 or more</option>
+        </select><br><br></div>
+
+        <div class="form-field">
+        <label for="zip_code_full">Zipcode:</label>
+        <input type="text" value="" name="zip_code_full"><br><br></div>
+
+        <div class="form-field">
+        <label for="num_referrals_bin">Total Number of Referral(s)?:</label>
+        <select name="num_referrals_bin" id="num_referrals_bin">
+          <option value="Nil" selected>0</option>
+          <option value="1-3" >1 - 3</option>
+          <option value="4 or more" >4 or more</option>
+        </select><br><br></div>
+
+        <div class="form-field">
+        <label for="contract_type">What is your contract type?:</label>
+        <select name="contract_type" id="contract_type">
+          <option value="Month-to-Month">Monthly</option>
+          <option value="One Year" selected>Annually</option>
+          <option value="Two Year" >Once every two years</option>
+        </select><br><br></div>
+           
+        <div class="form-field">
+        <label for="tenure_months">What is the number of months you have stayed with this telco?:</label>
+        <input type="text" value="" name="tenure_months"><br><br></div>
+
+        <div class="form-field">
+        <label for="payment_method">What is your payment method?:</label>
+        <select name="payment_method" id="payment_method">
+            <option value="Credit Card" selected>Credit Card</option>
+            <option value="Bank Withdrawal">Bank Withdrawal</option>
+            <option value="Mailed Check" >Mailed Check</option>
+        </select><br><br></div>
+  
+        <div class="form-field">
+        <label for="total_monthly_fee_raw">What is the total monthly fee incurred?:</label>
+        <input type="text" value="" name="total_monthly_fee_raw"><br><br></div>
+
+        <div class="form-field">
+        <label for="avg_long_distance_fee_monthly_raw">What is the average monthly long distance data fee incurred?:</label>
+        <input type="text" value="" name="avg_long_distance_fee_monthly_raw"><br><br></div>
+
+        <div class="form-field">
+        <label for="total_charges_quarter">What is the total charges incurred last quarter?:</label>
+        <input type="text" value="" name="total_charges_quarter"><br><br></div>
+
+        <div class="form-field">
+        <label for="avg_gb_download_monthly_raw">What is the average monthly download (in GB)?:</label>
+        <input type="text" value="" name="avg_gb_download_monthly_raw"><br><br></div>
+
+        <input type="submit" value="Predict">
+    </form>
+
+    {% if prediction is not none %}
+      {% if prediction == 1 %}
+      <h2>Customer is likely to churn</h2>
+      {% elif prediction == 0 %}
+      <h2>Customer is likely to stay</h2>
+      {% endif %}
+    {% endif %}
+</body>
+</html>
