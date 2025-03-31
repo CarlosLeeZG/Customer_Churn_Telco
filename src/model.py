@@ -18,6 +18,21 @@ class Model:
         }])
         return self.scalar.transform(df)[0]  
     
+    def validate_float(self, field_name, error_message, errors):
+        try:
+            return float(field_name)
+        except (ValueError, KeyError):
+            errors.append(error_message)
+            return None
+
+
+    def validate_int(self, field_name, error_message, errors):
+        try:
+            return int(field_name)
+        except (ValueError, KeyError):
+            errors.append(error_message)
+            return None
+
     # def standard_scaling_tenure(self, input_var):
     #     return self.scalar_tenure.transform([[input_var]])[0][0]
     
