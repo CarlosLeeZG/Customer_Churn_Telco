@@ -10,28 +10,28 @@ env:
 
 jobs:
   build-publish-docker-image:
-  runs-on: ubuntu-latest
-  steps:
-    - name: Checkout Git Repo
-      uses: actions/checkout@v3
-    
-    - name: Build & Tag Docker Image
-      run: docker build -t $IMAGE_NAME:$IMAGE_TAG -t $IMAGE_NAME:latest .
-    
-    - name: Login to DockerHub
-      uses: docker/login-action@v2
-      with:
-        username: ${{ secrets.DOCKERHUB_USERNAME }}
-        password: ${{ secrets.DOCKERHUB_PASSWORD }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Git Repo
+        uses: actions/checkout@v3
       
-    - name: Publish Docker image to Docker Hub
-      run: |
-        docker push $IMAGE_NAME:$IMAGE_TAG
-        docker push $IMAGE_NAME:latest
+      - name: Build & Tag Docker Image
+        run: docker build -t $IMAGE_NAME:$IMAGE_TAG -t $IMAGE_NAME:latest .
+      
+      - name: Login to DockerHub
+        uses: docker/login-action@v2
+        with:
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_PASSWORD }}
+        
+      - name: Publish Docker image to Docker Hub
+        run: |
+          docker push $IMAGE_NAME:$IMAGE_TAG
+          docker push $IMAGE_NAME:latest
 
   deploy-docker-image:
     runs-on: ubuntu-latest
-    needs: [build-and-publish-docker-image]  # requires successful completion
+    needs: [build-publish-docker-image]  # requires successful completion
     steps:
       - name: Set up SSH connection to AWS remote server
         env:
