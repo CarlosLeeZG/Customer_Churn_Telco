@@ -8,7 +8,7 @@ Carlos Lee Zhen Guang
 
 ## URLs to Deployed Flask Web Application
 
-App on AWS: http://ec2-47-129-40-17.ap-southeast-1.compute.amazonaws.com
+App on Render: http://ec2-47-129-40-17.ap-southeast-1.compute.amazonaws.com
 
 Repo on Docker: https://hub.docker.com/repository/docker/carlosleezg/telco_cust_churn/general
 
